@@ -54,7 +54,7 @@ class LinkedList(object):
 
     def length(self):
         """Return the length of this linked list by traversing its nodes.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Best and worst case running time: O(n) it loops through the LL n times"""
         # Node counter initialized to zero
         node_count = 0
         # Start at the head node
@@ -71,8 +71,8 @@ class LinkedList(object):
     def get_at_index(self, index):
         """Return the item at the given index in this linked list, or
         raise ValueError if the given index is out of range of the list size.
-        Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Best case running time: O(1) If List index is out of range, or if the index is 0 and it doesnt go through more than 1 loop iteration
+        Worst case running time: O(n) If the index is the last node in the linked list"""
         # Check if the given index is out of range and if so raise an error
         if not (0 <= index < self.size):
             raise ValueError('List index out of range: {}'.format(index))
@@ -86,8 +86,8 @@ class LinkedList(object):
     def insert_at_index(self, index, item):
         """Insert the given item at the given index in this linked list, or
         raise ValueError if the given index is out of range of the list size.
-        Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Best case running time: O(1) If list index is out of range, or if index == self.size or if index == 0 or if index == 1
+        Worst case running time: O(n) if index > 1 and not the size of the LL, then it will loop more than once iterating n times."""
         # Check if the given index is out of range and if so raise an error
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
@@ -112,7 +112,7 @@ class LinkedList(object):
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Best and worst case running time: O(1) everything runs constant time."""
         # Create a new node to hold the given item
         new_node = Node(item)
         # Check if this linked list is empty
@@ -128,7 +128,7 @@ class LinkedList(object):
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Best and worst case running time: O(1) everythings running constant time here."""
         # Create a new node to hold the given item
         new_node = Node(item)
         # Check if this linked list is empty
@@ -163,8 +163,8 @@ class LinkedList(object):
     def replace(self, old_item, new_item):
         """Replace the given old_item in this linked list with given new_item
         using the same node, or raise ValueError if old_item is not found.
-        Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Best case running time: O(1) same as find best case.
+        Worst case running time: O(n) same as find worst case"""
         # TODO: Find the node containing the given old_item and replace its
         # data with new_item, without creating a new node object
         node = self.find(lambda item: item == old_item, False)
@@ -177,8 +177,8 @@ class LinkedList(object):
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
-        Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Best case running time: O(1) if the item is at the head, it never iterates
+        Worst case running time: O(n) if the item is never found and Value error is raised"""
         # Start at the head node
         node = self.head
         # Keep track of the node before the one containing the given item
